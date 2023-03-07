@@ -1,0 +1,11 @@
+def total_euro(hours, price):
+    return hours*price
+
+hoursWorked = input("Radni sati:  ")
+hoursWorked = int(hoursWorked.split()[0])
+
+hourPrice = float(input("eura/h: "))
+
+totalPay = total_euro(hoursWorked,hourPrice)
+
+print(f"Ukupno: {totalPay}")
