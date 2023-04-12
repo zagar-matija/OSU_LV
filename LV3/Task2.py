@@ -4,27 +4,27 @@ import matplotlib.pyplot as plt
 
 #a
 data = pd.read_csv("data_C02_emission.csv")
-#plt.hist(data["CO2 Emissions (g/km)"])
-#plt.xlabel('co2 emisija')
-#plt.ylabel('broj auta')
-#plt.show()
+plt.hist(data["co2 emissions (g/km)"])
+plt.xlabel('co2 emisija')
+plt.ylabel('broj auta')
+plt.show()
 
-##b
-#colorDict = {'X': 'green', 'Z':"red", 'D':"blue", 'E':"black", 'N':"yellow"}
-#plt.scatter(data['Fuel Consumption City (L/100km)'], data["CO2 Emissions (g/km)"], c=[colorDict[x] for x in data['Fuel Type']])
-#plt.show()
+#b
+colordict = {'x': 'green', 'z':"red", 'd':"blue", 'e':"black", 'n':"yellow"}
+plt.scatter(data['fuel consumption city (l/100km)'], data["co2 emissions (g/km)"], c=[colordict[x] for x in data['fuel type']])
+plt.show()
 
-##c
+#c
 
-#df = data[["Fuel Consumption Hwy (L/100km)", "Fuel Type"]]
+df = data[["fuel consumption hwy (l/100km)", "fuel type"]]
 
-#df.boxplot(by='Fuel Type')
-#plt.show()
+df.boxplot(by='fuel type')
+plt.show()
 
-##d
-#df = data.groupby("Fuel Type")
-#df['Make'].count().plot(kind="bar")
-#plt.show()
+#d
+df = data.groupby("fuel type")
+df['make'].count().plot(kind="bar")
+plt.show()
 
 #e
 df = data.groupby("Cylinders")
