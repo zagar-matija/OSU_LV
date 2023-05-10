@@ -27,14 +27,16 @@ inputColumnsNumeric = ['Model',
                        'Fuel Consumption Hwy (L/100km)',
                        'Fuel Consumption Comb (L/100km)',
                        'Fuel Consumption Comb (mpg)',
-                       'Fuel Type']
+                       'D', 'E', 'X', 'Z'
+                       ]
 
 outputColumn = ['CO2 Emissions (g/km)']
 
 ohe = OneHotEncoder()
 X_encoded = ohe.fit_transform(data[['Fuel Type']]).toarray()
+data[ohe.categories_[0]]=X_encoded 
+#kategorije su imena stupaca, pohranjene u listu lista kategorija atributa categories_, zato [0], tj. jedina lista kategorija iz prosle linije dobivena
 
-data['Fuel Type'] = X_encoded
 
 X = data[inputColumnsNumeric].to_numpy()
 y = data[outputColumn].to_numpy()
